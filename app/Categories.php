@@ -13,7 +13,7 @@ class Categories extends Model
     ];
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User');                                    //relazione molti a uno
     }
     public function pages()
     {

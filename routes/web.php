@@ -28,7 +28,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::prefix('admin')
 ->name('admin.')
 ->namespace('Admin')
-->middleware('auth')
+->middleware('auth')                                                            //!!!!!!!!!proteggi la rotta!!!!!!
 ->group(function(){
-    Route::resource('pages', 'PageController');
+    Route::resource('pages', 'PageController');                                 //resource crea le rotte gia fatte
 });

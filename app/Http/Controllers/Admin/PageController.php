@@ -22,7 +22,9 @@ class PageController extends Controller
      */
     public function index()
     {
-        //
+        $pages = Page::all();                                                   //prendi tutti i dati dal db
+        $tags = Tag::all();
+        return view('admin.pages.index', compact('pages','tags'));                     //mettiamo la pagina a cui deve rimandare la funzione index
     }
 
     /**

@@ -37,7 +37,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function info()
+    public function info()                                                      //relazione one to one, il nome della f è scelto da noi
    {
        return $this->hasOne('App\InfoUser');
    }

@@ -1,5 +1,5 @@
 <?php
-
+//tabella ponte per many to many
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,7 +15,7 @@ class CreatePagesTagsTable extends Migration
     {
         Schema::create('pages_tags', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('page_id')->constrained();
+            $table->foreignId('page_id')->constrained();                        //forein k per le due tabelle che sono collegate
             $table->foreignId('tag_id')->constrained();
             $table->timestamps();
         });

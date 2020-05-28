@@ -15,8 +15,8 @@ class CreatePagesPhotosTable extends Migration
     {
         Schema::create('pages_photos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('page_id')->constrained();
-            $table->foreignId('photo_id')->constrained();
+            $table->foreignId('page_id')->constrained();                        //relazioni tra le due tabelle
+            $table->foreignId('photo_id')->constrained();                       //volendo si puo essere piu specifici se non si collegano guarda documentazione laravel
             $table->timestamps();
         });
     }

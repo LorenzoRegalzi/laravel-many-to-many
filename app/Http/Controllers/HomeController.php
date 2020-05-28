@@ -3,6 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use App\InfoUser;
+use App\Page;
+use App\Categories;
+use App\Photo;
+use App\Tag;
+
 
 class HomeController extends Controller
 {
@@ -23,6 +30,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $user = User::find(1);
+        dd($user->info);
         return view('home');
     }
 }

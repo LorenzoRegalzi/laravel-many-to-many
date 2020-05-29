@@ -13,7 +13,7 @@ class CreatePagesTagsTable extends Migration
      */
     public function up()
     {
-        Schema::create('pages_tags', function (Blueprint $table) {
+        Schema::create('page_tag', function (Blueprint $table) {
             $table->id();
             $table->foreignId('page_id')->constrained();                        //forein k per le due tabelle che sono collegate
             $table->foreignId('tag_id')->constrained();

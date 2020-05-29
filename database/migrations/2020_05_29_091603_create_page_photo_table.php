@@ -1,10 +1,10 @@
 <?php
-//tabella ponte per many to many
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePagesTagsTable extends Migration
+class CreatePagePhotoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreatePagesTagsTable extends Migration
      */
     public function up()
     {
-        Schema::create('page_tag', function (Blueprint $table) {
+        Schema::create('page_photo', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('page_id')->constrained();                        //forein k per le due tabelle che sono collegate
-            $table->foreignId('tag_id')->constrained();
+            $table->foreignId('page_id')->constrained();
+            //relazione photo
+            $table->foreignId('photo_id')->constrained();
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreatePagesTagsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pages_tags');
+        Schema::dropIfExists('page_photo');
     }
 }

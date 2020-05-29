@@ -43,7 +43,7 @@ class User extends Authenticatable
    }
    public function categories()
    {
-       return $this->hasMany('App\Categories');
+       return $this->hasMany('App\Category');                                 //relazione una a mol
    }
    public function photos()
    {

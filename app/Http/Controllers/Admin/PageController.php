@@ -4,11 +4,15 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facedes\Auth;
-use Illuminate\Support\Facedes\Validator;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
+
+
+
 use App\User;
 use App\Page;
-use App\Categories;
+use App\Category;
 use App\Tag;
 use App\Photo;
 
@@ -34,7 +38,7 @@ class PageController extends Controller
      */
     public function create()
     {
-        $categories = Categories::all();
+        $categories = Category::all();
         $tags = Tag::all();
         $photos = Photo::all();
         return view('admin.pages.create', compact('categories','tags','photos'));
@@ -48,13 +52,15 @@ class PageController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+        $data = $request->all();
+
+        $validator = Validator::make($data, [
            'title' => 'required|max:200',
            'body' => 'required',
            'category_id' => 'required|exist:categories,id',
            'tags' => 'required|array',
            'photos' => 'required|array',
-           'tags.*' => 'exists:tags,id',
+           'tags.*' => 'exists:tags,id',                                        //controlla nella tabella tag se esiste
            'photos.*' => 'exists:photos,id',
        ]);
 
@@ -63,6 +69,7 @@ class PageController extends Controller
                        ->withErrors($validator)
                        ->withInput();
        }
+       dd('ok');
     }
 
     /**

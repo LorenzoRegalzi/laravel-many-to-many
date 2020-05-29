@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\InfoUser;
 use App\Page;
-use App\Categories;
+use App\Category;
 use App\Photo;
 use App\Tag;
 

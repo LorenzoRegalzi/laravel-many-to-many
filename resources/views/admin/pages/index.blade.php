@@ -3,8 +3,16 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <table>
-                    <thead>
+                <ul class="nav justify-content-center">
+                    <li class="nav.item">
+                        <a class="nav-link active" href="{{route('admin.pages.create')}}">Aggiungi Pagina</a>
+                    </li>
+                    <li class="nav.item">
+                        <a class="nav-link active" href="{{route('admin.pages.create')}}">Torna alla dashboard</a>
+                    </li>
+                </ul>
+                <table class="table">
+                    <thead class="thead-dark">
                         <tr>
                             <th>ID</th>
                             <th>Titolo</th>

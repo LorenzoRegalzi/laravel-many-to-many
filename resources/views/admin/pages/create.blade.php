@@ -11,23 +11,23 @@
                     @method('POST')
                     <div class="form-group">
                         <label for="title">Titolo</label>
-                        <input type="text" name="title" class="form-control">
+                        <input type="text" name="title" class="form-control" value="{{old('title')}}">
                     </div>
                     <div class="form-group">
                         <label for="title">Sommario</label>
-                        <input type="text" name="title" class="form-control">
+                        <input type="text" name="title" class="form-control" value="{{old('summary')}}">
                     </div>
                     <div class="form-group">
                         <label for="title">Testo</label>
                         <textarea name="body" id="" rows="10" cols="30" class="form-control">
-
+                        {{old('body')}}
                         </textarea>
                     </div>
                     <div class="form-group">
                         <label for="category_id">Categoria</label>
                         <select name="category_id" id="category_id">
                             @foreach ($categories as $category)
-                                <option value="{{$category->id}}">{{$category->name}}</option>
+                                <option value="{{$category->id}}" {{(!empty(old('category_id')) ? 'selected' : '')}}>{{$category->name}}</option>                   {{--se è pieno mi scrivi che è selezionato altrimenti non scrivi niente--}}
                             @endforeach
                         </select>
                     </div>
@@ -35,7 +35,7 @@
                             <h3>Tags</h3>
                             @foreach ($tags as $tag)
                                 <label for="tags-{{($tag->id)}}">{{$tag->name}}</label>
-                                <input type="checkbox" name="tags[]" id="tags-{{$tag->id}}" value="{{$tag->id}}">
+                                <input type="checkbox" name="tags[]" id="tags-{{$tag->id}}" value="{{$tag->id}}" {{(!empty(old('tags['.$tag->id .']')) ? 'checked' : '')}}>
                             @endforeach
                         </select>
                     </div>

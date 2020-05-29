@@ -8,7 +8,7 @@ class Page extends Model
 {
     protected $fillable = [
         'user_id',
-        'categories_id',
+        'category_id',
         'title',
         'summary',
         'body',
@@ -20,7 +20,7 @@ class Page extends Model
     }
     public function categories()
     {
-        return $this->belongsTo('App\Categories');
+        return $this->belongsTo('App\Category');
     }
     public function tags()
    {
